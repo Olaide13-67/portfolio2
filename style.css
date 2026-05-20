@@ -587,7 +587,7 @@
     .d1 { transition-delay: 0.1s; } .d2 { transition-delay: 0.2s; } .d3 { transition-delay: 0.3s; } .d4 { transition-delay: 0.4s; }
 
     /* ===== MOBILE ===== */
-    @media (max-width: 900px) {
+    @media (max-width: 700px) {
       .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
       .hero-photo-wrap { order: -1; max-width: 320px; margin: 0 auto; }
       .hero-photo { height: 380px; }
