@@ -18,6 +18,19 @@
   --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* ===== LIGHT MODE ===== */
+:root.light-mode {
+  --bg: #f8f9fa;
+  --surface: #ffffff;
+  --surface2: #f3f4f6;
+  --border: #d1d5db;
+  --accent: #6d8017;
+  --accent2: #047857;
+  --text: #0f172a;
+  --muted: #475569;
+  --white: #ffffff;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -27,6 +40,7 @@ body {
   background: var(--bg);
   color: var(--text);
   overflow-x: hidden;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 ::-webkit-scrollbar {
@@ -171,6 +185,28 @@ header.scrolled {
   cursor: pointer;
   font-size: 1.5rem;
   color: var(--text);
+}
+
+.theme-toggle {
+  background: transparent;
+  border: 1.5px solid var(--border);
+  color: var(--text);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all var(--transition);
+  margin-right: 1rem;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: rotate(20deg);
 }
 
 /* ===== HERO ===== */
@@ -323,6 +359,18 @@ header.scrolled {
   border-color: var(--accent);
   color: var(--accent);
   transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1.5px solid var(--accent);
+  color: var(--accent);
+}
+.btn-secondary:hover {
+  background: var(--accent);
+  color: var(--bg);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(200, 240, 74, 0.2);
 }
 .hero-stats {
   display: flex;
