@@ -26,6 +26,9 @@
         <li><a href="#about">About</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#services">Services</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#faq">FAQ</a></li>
         <li><a href="#contact" class="nav-cta">Hire Me</a></li>
       </ul>
       <button class="theme-toggle" id="theme-toggle" title="Toggle theme">
@@ -106,7 +109,7 @@
           <div class="about-facts">
             <div class="fact">
               <div class="fact-key">Location</div>
-              <div class="fact-value">Nigeria 🇳🇬</div>
+              <div class="fact-value">Nigeria</div>
             </div>
             <div class="fact">
               <div class="fact-key">Experience</div>
@@ -114,7 +117,7 @@
             </div>
             <div class="fact">
               <div class="fact-key">Availability</div>
-              <div class="fact-value" style="color:var(--accent)">✔ Open</div>
+              <div class="fact-value" style="color:var(--accent)">Open</div>
             </div>
             <div class="fact">
               <div class="fact-key">Education</div>
@@ -154,7 +157,6 @@
               <div class="prof-header"><span>Tailwind CSS</span><span style="color:var(--accent)">85%</span></div>
               <div class="prof-bar"><div class="prof-fill" data-width="90"></div></div>
             </div>
-            </div>
           </div>
         </div>
       </div>
@@ -169,9 +171,15 @@
           <p class="section-label">Selected Work</p>
           <h2 class="section-title">Projects I've Built</h2>
         </div>
-        <a href="#contact" class="btn btn-ghost reveal d2">See All Work →</a>
+        <div class="projects-header-actions reveal d2">
+          <a href="#contact" class="btn btn-ghost">See All Work →</a>
+        </div>
       </div>
-      <div class="projects-grid">
+      <div class="projects-carousel">
+        <button type="button" class="carousel-btn carousel-btn--side carousel-btn--left" id="projects-prev" aria-label="Scroll projects left"><i class="bx bx-chevron-left"></i></button>
+        <button type="button" class="carousel-btn carousel-btn--side carousel-btn--right" id="projects-next" aria-label="Scroll projects right"><i class="bx bx-chevron-right"></i></button>
+        <div class="projects-viewport">
+        <div class="projects-track" id="projects-track">
 
         <!-- Tasty Restaurant Website -->
         <a href="https://tasty2restaurant.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-card project-link-card featured-project reveal d1">
@@ -283,7 +291,226 @@
             <p class="project-desc">An elegant fashion boutique site with editorial-style lookbooks, curated collections, and a refined shopping experience.</p>
           </div>
         </a>
+        <a href="https://bennykids-homestore.com/" target="_blank" rel="noopener noreferrer" class="project-card project-link-card reveal d3">
+          <div class="project-thumb">
+            <img src="/pic116.png" alt="Kids&Homestore website" class="project-screenshot">
+            <div class="project-thumb-overlay">
+              <div class="project-links-row">
+                <span class="project-link-btn"><i class="bx bx-link-external"></i> Visit Site</span>
+              </div>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="project-tag">HTML</span>
+              <span class="project-tag">CSS</span>
+              <span class="project-tag">JavaScript</span>
+            </div>
+            <div class="project-title">Kids&Homestore Website</div>
+            <p class="project-desc">A fully responsive eCommerce website for a kids' toy and home store with product listings, categories, and a smooth shopping experience</p>
+          </div>
+        </a>
 
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing section" id="pricing">
+    <div class="container">
+      <div class="reveal" style="text-align:center; max-width:560px; margin:0 auto 0.5rem;">
+        <p class="section-label">Pricing</p>
+        <h2 class="section-title">Simple, Transparent Rates</h2>
+        <p class="section-desc" style="margin:0 auto">Straightforward pricing built around the size of your project, no hidden costs.</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="pricing-card reveal d1">
+          <div class="pricing-name">Basic</div>
+          <div class="pricing-price"><span class="pricing-currency">₦</span>70,000</div>
+          <p class="pricing-desc">A clean single-page portfolio website, perfect for individuals getting started online.</p>
+          <ul class="pricing-features">
+            <li><i class="bx bx-check"></i> Single-page / portfolio website</li>
+            <li><i class="bx bx-check"></i> Mobile responsive design</li>
+            <li><i class="bx bx-check"></i> Basic on-page SEO setup</li>
+            <li><i class="bx bx-check"></i> 3-day delivery</li>
+          </ul>
+          <a href="#contact" class="btn btn-ghost pricing-btn">Get Started</a>
+        </div>
+
+        <div class="pricing-card pricing-featured reveal d2">
+          <span class="pricing-badge">Most Popular</span>
+          <div class="pricing-name">Standard</div>
+          <div class="pricing-price"><span class="pricing-currency">₦</span>100,000</div>
+          <p class="pricing-desc">A multi-page website with animation and social integration, built for growing brands.</p>
+          <ul class="pricing-features">
+            <li><i class="bx bx-check"></i> Up to 3 pages</li>
+            <li><i class="bx bx-check"></i> Custom animations</li>
+            <li><i class="bx bx-check"></i> Social media & contact integration</li>
+            <li><i class="bx bx-check"></i> Mobile responsive design</li>
+            <li><i class="bx bx-check"></i> 5-7 day delivery</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary pricing-btn">Get Started</a>
+        </div>
+
+        <div class="pricing-card reveal d3">
+          <div class="pricing-name">Custom</div>
+          <div class="pricing-price"><span class="pricing-currency">₦</span>120,000<span class="pricing-plus">+</span></div>
+          <p class="pricing-desc">A fully tailored build for complex requirements, e-commerce, or larger multi-page sites.</p>
+          <ul class="pricing-features">
+            <li><i class="bx bx-check"></i> Unlimited pages</li>
+            <li><i class="bx bx-check"></i> Advanced animations & interactions</li>
+            <li><i class="bx bx-check"></i> E-commerce / custom features</li>
+            <li><i class="bx bx-check"></i> Priority support</li>
+            <li><i class="bx bx-check"></i> Timeline based on scope</li>
+          </ul>
+          <a href="#contact" class="btn btn-ghost pricing-btn">Request Quote</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="reviews section" id="reviews">
+    <div class="container">
+      <div class="reveal" style="text-align:center; max-width:560px; margin:0 auto 0.5rem;">
+        <p class="section-label">Testimonials</p>
+        <h2 class="section-title">What Clients Say</h2>
+        <p class="section-desc" style="margin:0 auto">A few words from people I've built websites for.</p>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card reveal d1">
+          <div class="review-stars"><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i></div>
+          <p class="review-text">Olaide built our restaurant website in record time and it looks stunning. The animations feel premium and our customers keep complimenting the design.</p>
+          <div class="review-author">
+            <div class="review-avatar">TF</div>
+            <div>
+              <div class="review-name">Tolu Fashola</div>
+              <div class="review-role">Owner, Tasty Restaurant</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card reveal d2">
+          <div class="review-stars"><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i></div>
+          <p class="review-text">Communication was smooth from start to finish. I explained what I wanted and Olaide delivered a fashion site that matched my brand perfectly.</p>
+          <div class="review-author">
+            <div class="review-avatar">NA</div>
+            <div>
+              <div class="review-name">Nimi Adeyemi</div>
+              <div class="review-role">Founder, Nimi Store</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card reveal d3">
+          <div class="review-stars"><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i></div>
+          <p class="review-text">Professional, fast, and detail-oriented. The pet adoption site works flawlessly across every device and the booking form has made things so much easier for us.</p>
+          <div class="review-author">
+            <div class="review-avatar">KP</div>
+            <div>
+              <div class="review-name">Kemi Paul</div>
+              <div class="review-role">Manager, Paw2Haven</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card reveal d1">
+          <div class="review-stars"><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i></div>
+          <p class="review-text">I needed a luxury feel for our automobile brand and that's exactly what I got. The hero section alone has increased how long visitors stay on the site.</p>
+          <div class="review-author">
+            <div class="review-avatar">DV</div>
+            <div>
+              <div class="review-name">David Veyron</div>
+              <div class="review-role">Director, Veyronix Autos</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card reveal d2">
+          <div class="review-stars"><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i></div>
+          <p class="review-text">Olaide understood our vision for the boutique instantly. The site is elegant, loads fast, and the shopping experience feels effortless for our customers.</p>
+          <div class="review-author">
+            <div class="review-avatar">KJ</div>
+            <div>
+              <div class="review-name">Keji Johnson</div>
+              <div class="review-role">Creative Director, Keji Fashion</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq section" id="faq">
+    <div class="container">
+      <div class="reveal" style="text-align:center; max-width:560px; margin:0 auto 0.5rem;">
+        <p class="section-label">FAQ</p>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-desc" style="margin:0 auto">Answers to the questions I get asked most often.</p>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item reveal d1">
+          <button type="button" class="faq-question">
+            How long does it take to build a website?
+            <i class="bx bx-chevron-down faq-icon"></i>
+          </button>
+          <div class="faq-answer">
+            <p>A basic single-page site typically takes 3 days, while standard multi-page sites take 5-7 days. Custom projects depend on scope and are timed once requirements are confirmed.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal d1">
+          <button type="button" class="faq-question">
+            What is included in the Basic package?
+            <i class="bx bx-chevron-down faq-icon"></i>
+          </button>
+          <div class="faq-answer">
+            <p>The Basic package includes a single-page or portfolio website, fully mobile responsive, with basic on-page SEO, delivered within 3 days at ₦70,000.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal d2">
+          <button type="button" class="faq-question">
+            Do I need to provide my own content and images?
+            <i class="bx bx-chevron-down faq-icon"></i>
+          </button>
+          <div class="faq-answer">
+            <p>You're welcome to provide your own text and images, but if you don't have them ready, I can help source suitable visuals and structure your content as part of the build.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal d2">
+          <button type="button" class="faq-question">
+            Can I request revisions after the website is delivered?
+            <i class="bx bx-chevron-down faq-icon"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Yes. Every package includes a round of revisions after delivery, and ongoing maintenance or additional changes can be arranged afterward.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal d3">
+          <button type="button" class="faq-question">
+            What payment methods do you accept?
+            <i class="bx bx-chevron-down faq-icon"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Payments can be made via bank transfer. A deposit is required to begin work, with the balance due before final handover of the completed website.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal d3">
+          <button type="button" class="faq-question">
+            Will my website work well on mobile devices?
+            <i class="bx bx-chevron-down faq-icon"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Absolutely. Every website I build, regardless of package, is fully responsive and tested across phones, tablets, and desktops before delivery.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -351,7 +578,7 @@
             <div class="contact-icon"><i class="bx bx-phone"></i></div>
             <div>
               <div class="contact-label">Phone</div>
-              <div class="contact-value">+234 705 498 5718</div>
+              <div class="contact-value">+234 814 458 9405</div>
             </div>
           </div>
           <div class="contact-info-item">
@@ -363,8 +590,8 @@
           </div>
           <div class="social-row">
             <a href="https://github.com/Olaide13-67" class="social-btn"><i class="bx bxl-github"></i></a>
-            <a href="https://www.linkedin.com/in/oaide-adeshina-596482410" class="social-btn"><i class="bx bxl-linkedin"></i></a>
-            <a href="https://wa.me/2347038092157" class="social-btn"><i class="bx bxl-whatsapp"></i></a>
+            <a href="https://www.linkedin.com/in/olaide-adeshina-596482410" class="social-btn"><i class="bx bxl-linkedin"></i></a>
+            <a href="https://wa.me/2348144589405" class="social-btn" target="_blank" rel="noopener noreferrer"><i class="bx bxl-whatsapp"></i></a>
           </div>
         </div>
 
@@ -405,7 +632,7 @@
   <footer>
     <div class="footer-inner">
       <div class="footer-logo">OA<span>.</span></div>
-      <p class="footer-copy">© 2026 Olaide Adeshina. Designed & built with ❤️</p>
+      <p class="footer-copy">© 2026 Olaide Adeshina. Designed & built with care</p>
       <p class="footer-copy footer-links">
         <a href="/terms.html">Terms of Service</a>
         <span aria-hidden="true">·</span>
@@ -415,6 +642,30 @@
       </p>
     </div>
   </footer>
+
+  <!-- WHATSAPP FLOATING WIDGET -->
+  <div class="wa-widget" id="wa-widget">
+    <div class="wa-panel" id="wa-panel">
+      <div class="wa-panel-header">
+        <div class="wa-panel-avatar"><i class="bx bxl-whatsapp"></i></div>
+        <div>
+          <div class="wa-panel-name">Olaide Adeshina</div>
+          <div class="wa-panel-status">Typically replies within a day</div>
+        </div>
+        <button type="button" class="wa-panel-close" id="wa-panel-close" aria-label="Close chat"><i class="bx bx-x"></i></button>
+      </div>
+      <div class="wa-panel-body">
+        <div class="wa-bubble">Hi there! 👋 Leave a message below.</div>
+      </div>
+      <form class="wa-panel-form" id="wa-panel-form">
+        <textarea id="wa-message" placeholder="Type your message..." rows="3" required></textarea>
+        <button type="submit" class="wa-send-btn"><i class="bx bx-send"></i> Send</button>
+      </form>
+    </div>
+    <button type="button" class="wa-fab" id="wa-fab" aria-label="Chat on WhatsApp" title="Chat on WhatsApp">
+      <i class="bx bxl-whatsapp"></i>
+    </button>
+  </div>
 
   <script src="/script.js"></script>
 </body>

@@ -141,6 +141,171 @@ const barObs = new IntersectionObserver(
 );
 document.querySelectorAll(".proficiency").forEach((el) => barObs.observe(el));
 
+// FAQ accordion
+document.querySelectorAll(".faq-item").forEach((item) => {
+  const question = item.querySelector(".faq-question");
+  question.addEventListener("click", () => {
+    const isActive = item.classList.contains("active");
+    document
+      .querySelectorAll(".faq-item.active")
+      .forEach((openItem) => {
+        if (openItem !== item) openItem.classList.remove("active");
+      });
+    item.classList.toggle("active", !isActive);
+  });
+});
+
+// Projects carousel — seamless infinite loop
+const track = document.getElementById("projects-track");
+const prevBtn = document.getElementById("projects-prev");
+const nextBtn = document.getElementById("projects-next");
+
+if (track && prevBtn && nextBtn) {
+  const originals = Array.from(track.children);
+  const setCount = originals.length;
+
+  // Clone the full set once before and once after the originals so
+  // sliding past either edge always reveals identical-looking content.
+  const makeClone = (el) => {
+    const clone = el.cloneNode(true);
+    clone.setAttribute("aria-hidden", "true");
+    clone.setAttribute("tabindex", "-1");
+    clone
+      .querySelectorAll("a, button")
+      .forEach((el2) => el2.setAttribute("tabindex", "-1"));
+    return clone;
+  };
+
+  const afterFrag = document.createDocumentFragment();
+  const beforeFrag = document.createDocumentFragment();
+  originals.forEach((card) => afterFrag.appendChild(makeClone(card)));
+  originals.forEach((card) => beforeFrag.appendChild(makeClone(card)));
+  track.appendChild(afterFrag);
+  track.insertBefore(beforeFrag, track.firstChild);
+
+  const cardGap = 28;
+
+  // Position is tracked as an integer "step" count (one card = one step)
+  // rather than a raw scroll offset, and the strip is moved with a CSS
+  // transform instead of native scrolling. This avoids any fight with
+  // scroll-snap or native smooth-scroll timing — the wrap-around reset
+  // happens the instant the transition ends, every time, exactly.
+  let stepWidth = 0;
+  const measureStep = () => {
+    const card = track.querySelector(".project-card");
+    stepWidth = card ? card.offsetWidth + cardGap : track.clientWidth;
+  };
+
+  let currentStep = setCount; // start on the first card of the real (middle) set
+
+  const applyTransform = (animate) => {
+    track.style.transition = animate
+      ? "transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)"
+      : "none";
+    track.style.transform = `translateX(${-currentStep * stepWidth}px)`;
+  };
+
+  measureStep();
+  applyTransform(false);
+
+  // The instant the slide-transition finishes, silently re-map back into
+  // the middle set if we've drifted into a clone region. Because the
+  // clone region is pixel-identical to the real set, this remap changes
+  // the transform value but produces zero visible difference on screen.
+  track.addEventListener("transitionend", (e) => {
+    if (e.target !== track || e.propertyName !== "transform") return;
+    if (currentStep >= setCount * 2) {
+      currentStep -= setCount;
+      applyTransform(false);
+    } else if (currentStep < setCount) {
+      currentStep += setCount;
+      applyTransform(false);
+    }
+  });
+
+  const scrollNext = () => {
+    currentStep++;
+    applyTransform(true);
+  };
+  const scrollPrev = () => {
+    currentStep--;
+    applyTransform(true);
+  };
+
+  let autoScrollTimer = null;
+  const startAutoScroll = () => {
+    stopAutoScroll();
+    autoScrollTimer = setInterval(scrollNext, 3000);
+  };
+  const stopAutoScroll = () => {
+    if (autoScrollTimer) clearInterval(autoScrollTimer);
+  };
+  const restartAutoScroll = () => {
+    stopAutoScroll();
+    startAutoScroll();
+  };
+
+  prevBtn.addEventListener("click", () => {
+    scrollPrev();
+    restartAutoScroll();
+  });
+  nextBtn.addEventListener("click", () => {
+    scrollNext();
+    restartAutoScroll();
+  });
+
+  // Pause auto-scroll while the user is interacting, resume after
+  track.addEventListener("mouseenter", stopAutoScroll);
+  track.addEventListener("mouseleave", startAutoScroll);
+  track.addEventListener("touchstart", stopAutoScroll, { passive: true });
+  track.addEventListener("touchend", startAutoScroll);
+
+  window.addEventListener("resize", () => {
+    measureStep();
+    applyTransform(false);
+  });
+
+  startAutoScroll();
+}
+
+// ===== WHATSAPP FLOATING WIDGET =====
+const WA_NUMBER = "2348144589405"; // Olaide's WhatsApp number, no + or leading 0
+const waWidget = document.getElementById("wa-widget");
+const waFab = document.getElementById("wa-fab");
+const waPanelClose = document.getElementById("wa-panel-close");
+const waForm = document.getElementById("wa-panel-form");
+const waMessageInput = document.getElementById("wa-message");
+
+if (waWidget && waFab) {
+  waFab.addEventListener("click", () => {
+    waWidget.classList.toggle("open");
+    if (waWidget.classList.contains("open")) {
+      waMessageInput.focus();
+    }
+  });
+
+  waPanelClose.addEventListener("click", () => {
+    waWidget.classList.remove("open");
+  });
+
+  waForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const message = waMessageInput.value.trim();
+    if (!message) return;
+    const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank", "noopener,noreferrer");
+    waMessageInput.value = "";
+    waWidget.classList.remove("open");
+  });
+
+  // Close panel when clicking outside of it
+  document.addEventListener("click", (e) => {
+    if (waWidget.classList.contains("open") && !waWidget.contains(e.target)) {
+      waWidget.classList.remove("open");
+    }
+  });
+}
+
 // Toast
 function handleSend(e) {
   e.preventDefault();
