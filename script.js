@@ -42,14 +42,14 @@ if (downloadCVBtn) {
     e.preventDefault();
     
     // Create a blob from the PDF file path
-    fetch('./Resume.pdf')
+    fetch('./Frontend Developer.pdf')
       .then(response => response.blob())
       .then(blob => {
         // Create a temporary download link
         const url = window.URL.createObjectURL(blob);
         const link = document.createElement('a');
         link.href = url;
-        link.download = 'Olaide_Adeshina_Resume.pdf';
+        link.download = 'Olaide_Adesina_Resume.pdf';
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
